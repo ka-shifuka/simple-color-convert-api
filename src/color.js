@@ -158,6 +158,7 @@ class ColorConvert {
 				status: 400
 			};
 		}
+		console.log("hello");
 
 		this.rgb = convert.keyword.rgb(key);
 		this.hsl = convert.keyword.hsl(key);

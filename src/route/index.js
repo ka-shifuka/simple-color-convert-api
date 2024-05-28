@@ -1,9 +1,11 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { ColorConvert } from "../color.js";
 
 const convert = new ColorConvert();
 
 const route = new Hono();
+
 route.get("/rgb-hsl/:value", c => {
 	const { value } = c.req.param();
 	const result = convert.rgb_hsl(value);
@@ -50,12 +52,10 @@ route.get("/keyword/:value", c => {
 	const { value } = c.req.param();
 	const result = convert.keyword(value);
 
-	// 	c.status(result.status);
-	// 	return c.json({ result });
+	console.log("hello");
 
-	return c.body(result, result.status, {
-		"Content-Type": "application/json"
-	});
+	c.status(result.status);
+	return c.json({ result });
 });
 
 export { route };
