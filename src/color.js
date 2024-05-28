@@ -38,7 +38,7 @@ class ColorConvert {
 		if (rgbArrayFormat.length > 3) return worngFormat;
 
 		for (let i of rgbArrayFormat) {
-			if (i > 255) return worngFormat;
+			if (i > 255 || !i) return worngFormat;
 		}
 
 		// return false because if not true format return {}
@@ -74,9 +74,9 @@ class ColorConvert {
 		if (hslArrayFormat.length > 3) return worngFormat;
 
 		for (let i = 0; i < hslArrayFormat.length; i++) {
-			if (hslArrayFormat[0] > 360) return worngFormat;
+			if (hslArrayFormat[0] > 360 || !i) return worngFormat;
 			else continue;
-			if (hslArrayFormat[i] > 100) return worngFormat;
+			if (hslArrayFormat[i] > 100 || !i) return worngFormat;
 		}
 
 		return false;
@@ -99,7 +99,7 @@ class ColorConvert {
 	}
 
 	rgb_hex(rgb) {
-		const rgbArrayFormat = this.formatRgb(stringRgb);
+		const rgbArrayFormat = this.formatRgb(rgb);
 
 		if (this.checkRgbArrayFormat(rgbArrayFormat)) {
 			return this.checkRgbArrayFormat(rgbArrayFormat);
