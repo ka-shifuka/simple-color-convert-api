@@ -1,0 +1,16 @@
+{
+  "name": "color-convert-api",
+  "author": "ka-shifuka",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel",
+    "node": "node --watch --trace-warnings api/node.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.11.1",
+    "color-convert": "^2.0.1",
+    "hono": "^4.3.11"
+  },
+  "type": "module"
+}
