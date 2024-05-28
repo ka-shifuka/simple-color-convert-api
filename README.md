@@ -13,12 +13,13 @@ contoh:
  GET https://color-convert-api.vercel.app/convert/hex-rgb/ff55ff
 
  // hasil
- {"result":{
-  "rgb"[255,85,255],
-  "hex":"ff55ff",
-  "status":200
+ {
+  "result":{
+   "rgb"[255,85,255],
+   "hex":"ff55ff",
+   "status":200
   }
-}
+ }
 ```
 semua hasil adalah json
 
@@ -33,4 +34,15 @@ semua hasil adalah json
 |`/hsl-rgb`| mengkonversi hsl dengan format `360-100-100` ke rgb contoh `/hsl-rgb/336-58-71`|
 |`/keyword`| mengkonversi [keyword](https://github.com/ka-shifuka/simple-color-convert-api/blob/main/src/keyword.js)  ke rgb, hsl dan hex contoh `/keyword/blue`|
 
-
+### How to install
+jika kamu ingin menginstall color-convert-api secara local lakukan langkah berikut
+`git clone https://github.com/ka-shifuka/simple-color-convert-api`
+`cd simple-color-convert-api`
+`pnpm install`
+```
+pnpm node // runing di nodejs
+pnpm start // running di vercel secara local
+pnpm deploy // deploy ke vercel pastikan memiliki akun vercel
+```
+pastikan vercel terinstall secara global
+`pnpm add -g vercel`
