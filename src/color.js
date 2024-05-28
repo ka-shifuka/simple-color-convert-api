@@ -150,7 +150,6 @@ class ColorConvert {
 	}
 
 	keyword(key) {
-		console.log(convert.keyword.rgb(key));
 		if (!convert.keyword.rgb(key)) {
 			return {
 				error: "Keyword is Worng",
@@ -158,7 +157,6 @@ class ColorConvert {
 				status: 400
 			};
 		}
-		console.log("hello");
 
 		this.rgb = convert.keyword.rgb(key);
 		this.hsl = convert.keyword.hsl(key);

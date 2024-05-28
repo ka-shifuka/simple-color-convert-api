@@ -3,13 +3,16 @@ import { cors } from "hono/cors";
 import { route } from "./route/index.js";
 const app = new Hono();
 
-app.use("/*", cors({origin:"*"}));
+app.use("/*", cors({ origin: "*" }));
 
 app.get("/", c => {
-	const userAgent = c.req.header("User-Agent");
-	return c.json({ message: "Hello Hono! g", "User-Agent": userAgent });
+	return c.json({
+		message: "Hello Welcome to color-convert-api",
+		author: "ka-shifuka",
+		"for-tutorial": "https://github.com/ka-shifuka/simple-color-convert-api"
+	});
 });
 
-app.route("/api", route);
+app.route("/convert", route);
 
 export default app;
