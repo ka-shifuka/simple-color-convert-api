@@ -36,9 +36,15 @@ semua hasil adalah json
 
 ### How to install
 jika kamu ingin menginstall color-convert-api secara local lakukan langkah berikut
-`git clone https://github.com/ka-shifuka/simple-color-convert-api`
-`cd simple-color-convert-api`
-`pnpm install`
+```
+git clone https://github.com/ka-shifuka/simple-color-convert-api
+```
+```
+cd simple-color-convert-api
+```
+```
+pnpm install
+```
 ```
 pnpm node // runing di nodejs
 pnpm start // running di vercel secara local
