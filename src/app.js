@@ -1,30 +1,24 @@
 import { Hono } from "hono";
-import { ColorConvert } from "./color.js";
+import { cors } from "hono/cors";
+import { route } from "./route/index.js";
 const app = new Hono();
 
 app.get("/", c => {
-  const userAgent = c.req.header("User-Agent");
-  return c.json({ message: "Hello Hono! g", "User-Agent": userAgent });
+	const userAgent = c.req.header("User-Agent");
+	return c.json({ message: "Hello Hono! g", "User-Agent": userAgent });
 });
 
-app.get("/rgb-hsl/:value", c => {
-  const { value } = c.req.param();
-  const convert = new ColorConvert();
-
-  const result = convert.rgb_hsl(value);
-
-  c.status(result.status);
-  return c.json({ result });
-});
-
-app.get("/rgb-hex/:value", c => {
-  const { value } = c.req.param();
-  const convert = new ColorConvert();
-
-  const result = convert.rgb_hex(value);
-
-  c.status(result.status);
-  return c.json({ result });
-});
+app.route("/", route);
+app.use(
+	"/*",
+	cors({
+		origin: "*",
+		allowHeaders: ["X-Custom-Header", "Upgrade-Insecure-Requests"],
+		allowMethods: ["POST", "GET", "OPTIONS"],
+		exposeHeaders: ["Content-Length", "X-Kuma-Revision"],
+		maxAge: 600,
+		credentials: true
+	})
+);
 
 export default app;
